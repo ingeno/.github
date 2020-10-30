@@ -26,8 +26,14 @@ labels:
     color: '#6cb524'
     description: Change in the documentation
 
+collaborators:
+  - username: sebasrobert
+    permission: push
+
 teams:
   - name: admins
+    permission: admin
+  - name: template-admins
     permission: admin
 
 branches:
