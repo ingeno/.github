@@ -17,15 +17,17 @@ repository:
 
 labels:
   - name: bug
+    description: Something is broken
     color: '#CC0000'
-  - name: feature
-    color: '#336699'
   - name: chore
     color: '#f2df8c'
     description: Repository or code maintenance
   - name: documentation
     color: '#6cb524'
     description: Change in the documentation
+  - name: feature
+    description: New feature or change to an existing feature
+    color: '#336699'
 
 collaborators:
   - username: sebasrobert
