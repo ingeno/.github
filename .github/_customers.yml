@@ -19,6 +19,9 @@ labels:
   - name: chore
     description: Repository or code maintenance
     color: '#f2df8c'
+  - name: dependencies
+    color: '#70f9e0'
+    description: Update dependencies
   - name: documentation
     description: Change in the documentation
     color: '#6cb524'
