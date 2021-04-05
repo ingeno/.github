@@ -4,6 +4,7 @@ repository:
   topics: github, configuration
   private: true
   is_template: false
+  default_branch: main
 
   has_issues: true
   has_wiki: false
@@ -37,7 +38,7 @@ teams:
     permission: admin
 
 branches:
-  - name: master
+  - name: main
     protection:
       required_pull_request_reviews:
         required_approving_review_count: 1
