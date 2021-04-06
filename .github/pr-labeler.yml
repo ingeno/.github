@@ -1,4 +1,6 @@
-bug: bugfix/*
+bug:
+  - bugfix/*
+  - fix/*
 chore: chore/*
 documentation:
   - documentation/*
