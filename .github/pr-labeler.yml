@@ -1,0 +1,8 @@
+bug:
+  - bugfix/*
+  - fix/*
+chore: chore/*
+documentation:
+  - documentation/*
+  - docs/*
+feature: feature/*

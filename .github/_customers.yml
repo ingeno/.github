@@ -14,18 +14,23 @@ repository:
 
 labels:
   - name: bug
+    description: Something is broken
     color: '#CC0000'
-  - name: feature
-    color: '#336699'
   - name: chore
-    color: '#f2df8c'
     description: Repository or code maintenance
+    color: '#f2df8c'
+  - name: dependencies
+    color: '#70f9e0'
+    description: Update dependencies
   - name: documentation
-    color: '#6cb524'
     description: Change in the documentation
+    color: '#6cb524'
   - name: do-not-merge
-    color: '#ed622f'
     description: This PR should not be merged
+    color: '#ed622f'
+  - name: feature
+    description: New feature or change to an existing feature
+    color: '#336699'
 
 teams:
   - name: admins
