@@ -33,14 +33,6 @@ labels:
     description: New feature or change to an existing feature
     color: '#336699'
 
-teams:
-  - name: admins
-    permission: admin
-  - name: ingeno
-    permission: push
-  - name: template-admins
-    permission: admin
-
 branches:
   - name: main
     protection:
