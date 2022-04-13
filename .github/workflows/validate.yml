@@ -2,7 +2,8 @@ name: Validate YAML files
 
 on:
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 env:
   NODE_VERSION: 13.12.0
