@@ -1,0 +1,30 @@
+extends: default
+
+ignore: |
+  node_modules/
+  .git/
+
+rules:
+  brackets:
+    forbid: false
+  colons:
+    max-spaces-before: 0
+    max-spaces-after: 1
+  empty-lines:
+    max: 1
+    max-start: 0
+  document-start: disable
+  comments: disable
+  truthy: disable
+  line-length:
+    max: 150
+    level: error
+  hyphens:
+    max-spaces-after: 1
+  indentation:
+    spaces: 2
+  quoted-strings:
+    quote-type: single
+    required: only-when-needed
+  new-line-at-end-of-file: enable
+  trailing-spaces: enable

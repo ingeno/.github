@@ -1,0 +1,34 @@
+name: Private Package Access Request
+description: Request a Personal Access Token to grant your project access to Ingeno's private packages
+title: '[PAT Request]: '
+labels:
+  - access-request
+assignees:
+  - admins
+body:
+  - type: input
+    id: project-name
+    attributes:
+      label: Project Name
+      # yamllint disable rule:line-length
+      description: The name of the project with which the repository is associated. Could be a customer name, the name of the project in Harvest or the repository name.
+      # yamllint enable rule:line-length
+      placeholder: Super Customer - 2022 Q3
+    validations:
+      required: true
+  - type: input
+    id: project-end-date
+    attributes:
+      label: Expected End Date (YYYY-MM-DD)
+      description: The expected end date of the project. Will drive the expiry of the PAT. Should be in the format year-month-day.
+      placeholder: 2022-12-25
+    validations:
+      required: true
+  - type: checkboxes
+    id: request-renewal
+    attributes:
+      label: Is this a renewal for an existing PAT for this project?
+      description: Is there an existing PAT that already allocated to this project that has expired? This just helps us track PATs.
+      options:
+        - label: 'Yes'
+        - label: 'No'
