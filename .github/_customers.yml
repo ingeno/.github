@@ -17,6 +17,9 @@ repository:
   enable_vulnerability_alerts: true
 
 labels:
+  - name: access-request
+    description: Request access to a repository or private package
+    color: '#724B6E'
   - name: bug
     description: Something is broken
     color: '#CC0000'
