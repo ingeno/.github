@@ -4,7 +4,7 @@ title: '[PAT Request]: '
 labels:
   - access-request
 assignees:
-  - admins
+  - ingeno/admins
 body:
   - type: input
     id: project-name

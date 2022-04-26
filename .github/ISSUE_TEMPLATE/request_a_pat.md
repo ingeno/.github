@@ -3,7 +3,7 @@ name: Private Package Access Request
 about: Request a Personal Access Token to grant your project access to Ingeno's private packages
 title: "[PAT Request]: "
 labels: "access-request"
-assignees: admins
+assignees: ingeno/admins
 ---
 
 # Request a PAT to access private repository
