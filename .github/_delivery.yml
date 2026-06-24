@@ -1,0 +1,89 @@
+# Shared delivery-governance base for Ingeno delivery repos.
+#
+# This is the customer base (_customers.yml) MERGED with the delivery-governance
+# override profile, kept SELF-CONTAINED so it applies correctly regardless of whether
+# the Settings app deep-merges nested `_extends` / array values. (The customer repos
+# already redeclare their full label set rather than relying on inheritance, which is
+# why this template does too.)
+#
+# Keep the non-profile base values (repository defaults, labels, teams) in sync with
+# `_customers.yml`; THIS file owns the delivery profile:
+#   - squash-only merge + auto-merge
+#   - main-branch protection gated by `CI Success` + `PR Approval Label Check` in place
+#     of mandatory human review (the approval-gate workflow is the merge gate; human
+#     code review stays a manual pre-`approved`-label step)
+#   - Renovate is the sole dependency-update bot (Dependabot security PRs off)
+#
+# A delivery repo opts in with:
+#   _extends: .github:.github/_delivery.yml
+# and overrides only repo-specifics (name, description, team, any extra labels).
+
+repository:
+  private: true
+  is_template: false
+  default_branch: main
+
+  has_issues: true
+  has_wiki: false
+  has_downloads: false
+  has_projects: true
+
+  # Delivery profile: squash-only + auto-merge.
+  allow_squash_merge: true
+  allow_merge_commit: false
+  allow_rebase_merge: false
+  allow_auto_merge: true
+  squash_merge_commit_title: PR_TITLE
+  squash_merge_commit_message: PR_BODY
+  delete_branch_on_merge: true
+
+  # Renovate-only: disable Dependabot security PRs (Renovate owns dependency +
+  # security + lockfile-maintenance updates).
+  enable_automated_security_fixes: false
+  enable_vulnerability_alerts: true
+
+labels:
+  # Org standard set (kept in sync with _customers.yml) ...
+  - name: access-request
+    description: Request access to a repository or private package
+    color: '#724B6E'
+  - name: bug
+    description: Something is broken
+    color: '#CC0000'
+  - name: chore
+    description: Repository or code maintenance
+    color: '#f2df8c'
+  - name: dependencies
+    color: '#70f9e0'
+    description: Update dependencies
+  - name: documentation
+    description: Change in the documentation
+    color: '#6cb524'
+  - name: do-not-merge
+    description: This PR should not be merged
+    color: '#ed622f'
+  - name: feature
+    description: New feature or change to an existing feature
+    color: '#336699'
+  # ... plus the delivery merge-gate label.
+  - name: approved
+    description: PR reviewed and approved for merge
+    color: '#0E8A16'
+
+teams:
+  - name: admins
+    permission: admin
+
+branches:
+  - name: main
+    protection:
+      # Merge gate = the `approved` label + CI, NOT mandatory GitHub review.
+      required_pull_request_reviews: null
+      required_status_checks:
+        strict: false
+        contexts:
+          - CI Success
+          - PR Approval Label Check
+      required_signatures: false
+      enforce_admins: false
+      restrictions: null
